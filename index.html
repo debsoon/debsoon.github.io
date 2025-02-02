@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Are You A Digital Maverick?</title>
+    <link rel="icon" href="smaller_images/Checks-Black.png" type="image/png">
+    <style>
+        @font-face {
+            font-family: 'VideoText';
+            src: url('PF VideoText/PFVideoTextPro-Regular.ttf') format('truetype');
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'VideoText', sans-serif;
+            background: #ffde59;
+        }
+
+        .container {
+            width: 100vw; /* full viewport width */
+            height: calc(100vw * (16 / 9)); /* maintain 9:16 aspect ratio */
+            max-height: 150vh; /* full viewport height */
+            max-width: calc(100vh * (9 / 16));
+            padding: 20px;
+            border-radius: 10px;
+            background: #ffde59;
+            /* background: #e5f2d2; */
+            box-shadow: 0 0 0px rgba(0,0,0,0.1);
+            text-align: center;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* overflow-y: auto;   */
+        }
+
+        .title {
+            font-size: 28px;
+            margin-bottom: 3vh;
+        }
+
+        .start-button, .share-button {  /* Combined styles for both buttons */
+            font-size: 21px;
+            color: #ffffff;
+            padding: 1vh 2vw;
+            /* border: 2px solid #fcf0c0; */
+            background-color: #000000;
+            cursor: pointer;
+            text-decoration: none;
+            margin-bottom: 3vh;
+            font-family: 'VideoText', sans-serif;
+            border: none;  /* Add this to match the start button */
+        }
+
+        .start-button:hover, .share-button:hover {
+            background-color: #7d6f15;
+        }
+
+        .game-container {
+            display: none;
+            margin-top: 10%;
+            overflow: auto;
+        }
+ 
+        .choices {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Changed from center to flex-start for left alignment */
+            gap: 10px;
+            margin-top: 2rem;
+            width: 100%; /* Ensure the container takes full width */
+            padding: 0 20px; /* Add some padding on the sides */
+        }
+
+        .choice-button {
+            font-family: 'VideoText', sans-serif;
+            font-size: 18px;
+            padding: 1vh 1vw;
+            border: 0.5px solid #f2d79e;
+            background-color: #f6e9bd;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            width: 100%; /* Make all buttons full width */
+            text-align: left; /* Align text to the left */
+            max-width: 600px; /* Optional: set a maximum width */
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+
+        @media (hover: hover) {
+            .choice-button:hover {
+                background-color: #f3dba7; /* Slightly darker background on hover */
+            }
+        }
+        .choice-button:focus {
+            background-color: #fff; /* Slightly darker background on hover */
+        }
+        .story-text {
+            font-size: 20px;
+            margin-bottom: 1rem; /* Space above the choices container */
+        /* padding-bottom: 5rem; */
+        }
+
+        .image-container {
+            max-width: 70%; /* Set max width of image container */
+            margin: 0 auto; /* Center the image horizontally */
+        }
+
+        .image-container img {
+            width: 100%; /* Make the image fill its container */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Remove any extra space */
+            max-width: 100%; /* Ensure image does not exceed its container */
+        }
+
+        .responsive-image {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Which Digital Maverick Are You?</div> 
+        <img id="homescreen" style="padding-bottom: 15px" src="smaller_images/quiz_home.png" alt="Story Image"/>
+        <a href="#" class="start-button" id="start-button">Start</a>
+        
+        <div class="game-container" id="game-container" style="display: none;">
+            <div class="story-text" id="story-text"></div>
+            <div class="image-container">
+                <img id="story-image" src="smaller_images/quiz_home.png" alt="Story Image"/>
+            </div>
+            <div class="choices" id="choices"></div>
+        </div>
+    </div>
+    
+    <script src="mainGame2.js"></script>
+    
+    <script>
+        document.getElementById('start-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            try {
+                startGame();
+            } catch (error) {
+                console.error("Error starting game:", error);
+            }
+        });
+    </script>
+    
+    <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+</body> 
+</html>
